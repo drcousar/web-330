@@ -1,0 +1,45 @@
+<!--
+;============================================
+; Title:  cousar-assignment-4.3.js
+; Author: Don Cousar
+; Date:   17 March 2019
+; Description: Object literal delete
+;===========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 4.2 - HTTP GET</title>
+
+    <!-- jQuery reference -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<script>
+
+$(function() {
+    $('#delete1').click(function () {
+        $.ajax({
+            url: "http://httpbin.org/delete",
+            dataType: "json",
+            type: "DELETE",
+            data: {firstName: "John", lastName: "Doe"},
+            success: function (data, status) {
+            console.log("First Name: " + data.form.firstName + "\nLast Name: " +
+            data.form.lastName + "\nStatus: " + status);
+            }
+        });
+    })
+});
+
+</script>
+<!-- HTTP DELETE BUTTON -->
+<h4>HTTP DELETE</h4>
+<button id="delete1">HTTP DELETE</button>
+<br/>
+
+</body>
+</html>
