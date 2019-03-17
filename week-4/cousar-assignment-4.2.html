@@ -1,0 +1,39 @@
+<!--
+;============================================
+; Title:  cousar-assignment-4.2.js
+; Author: Don Cousar
+; Date:   17 March 2019
+; Description: REST service returns random breed of dog
+;===========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment name</title>
+
+    <!-- jQuery reference -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<script>
+
+$(function() {
+
+    $('#get1').click(function () {
+        $.get("https://dog.ceo/api/breeds/image/random", function (data, status) {
+        console.log("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+        })
+    });
+});
+
+</script>
+<!-- HTTP GET BUTTON -->
+<h4>Assignment 4.2</h4>
+<button id="get1">HTTP GET Random Breed</button>
+<br />
+
+</body>
+</html>
