@@ -1,0 +1,40 @@
+<!--
+;============================================
+; Title:  cousar-assignment-5.2.js
+; Author: Don Cousar
+; Date:   24 March 2019
+; Description: Proxy Patterns
+;===========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 5.2 - The Proxy Pattern</title>
+
+    <!-- jquery Reference Library -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="jumbotron">
+        <h2>Don's Proxy Example</h2>
+        <button id="btnProxy">Run test</button>
+        <br /><span id="proxySpan1"></span>
+    </div>
+<script>
+    var movie = {
+        genre: "Horror",
+        rating: "PG-13",
+        display: function() {
+            $("#proxySpan1").html("");
+            $("#proxySpan1").append("<br />Genre: " + this.genre + "<br />" + "Rating: " + this.rating);
+        }
+    };
+
+    $("#btnProxy").click($.proxy(movie, "display"));
+</script>
+
+</body>
+</html>
+
