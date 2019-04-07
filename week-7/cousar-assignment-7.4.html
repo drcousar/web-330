@@ -1,0 +1,62 @@
+<!--
+;============================================
+; Title:  Assignment 7.4
+; Author: Don Cousar
+; Date:   6 April 2019
+; Description: KnockOut Other Bindings
+;===========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Assignment 7.4</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- JavaScript Libraries -->
+    <script src="../knockout-3.5.0.js"></script>
+</head>
+<body>
+    
+
+    <div role="main" class="container">
+        <br/><br/>
+        <!-- Build table of objects, style and attributes-->
+        <table class="table table-dark table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: tutorial">
+                <tr>
+                    <td data-bind="text: title"></td>
+                    <td data-bind="text: description"></td>
+                    <td><a data-bind="attr: {href: url}, style: {color: 'white', 'font-weight': '500'}" target="_blank">View Class</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+    </div>
+    <script>
+        //Tutorial object with links
+        function TutorialViewModel() {
+            this.tutorial = ko.observableArray([
+                {title: "Learn C#", description: "General Purpose OOP Language", url: "https://www.tutorialspoint.com/csharp/index.htm"},
+                {title: "Learn Java", description: "High Level Programming Language", url: "https://www.tutorialspoint.com/java/index.htm"},
+                {title: "Learn CSS", description: "Cascading Style Sheets", url: "https://www.tutorialspoint.com/css/index.htm"},
+                {title: "Learn Node JS", description: "Powerful JavaScript Platform", url: "https://www.tutorialspoint.com/nodejs/index.htm"},
+                {title: "Learn AWK", description: "Powerful Text Processing Utility", url: "https://www.tutorialspoint.com/awk/index.htm"}    
+            ]);
+       }
+       ko.applyBindings(new TutorialViewModel());
+    </script>
+</body>
+</html>
